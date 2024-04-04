@@ -8,6 +8,7 @@ import { selectRefreshUser } from '../redux/auth/selectors';
 import { RestrictedRoute } from './RestrictedRoute';
 import { PrivatRoute } from './PrivatRoute';
 import { Toaster } from 'react-hot-toast';
+import { PuffLoader } from 'react-spinners';
 
 const HomePage = lazy(() => import("../pages/Home/Home"));
 const ContactsPage = lazy(() => import("../pages/Contacts/Contacts"));
@@ -23,7 +24,7 @@ function App() {
   }, [dispatch]); 
 
   return isRefresh
-    ? (<b>Refreshing user, please wait...</b>)
+    ? (<PuffLoader size={40} color="red"/>)
     : (
       <Layout>
         <Toaster position="top-center" reverseOrder={false}/>

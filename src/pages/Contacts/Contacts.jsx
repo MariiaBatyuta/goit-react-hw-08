@@ -20,8 +20,10 @@ export default function Contacts() {
         <div>
             <ContactForm />
             <SearchBox />
-            <h3 className={css.title}>Your contacts</h3>
-            {loading && <PuffLoader size={40}/>}
+            <div className={css.titleContainer}>
+                <h3 className={css.title}>Your contacts</h3>
+                {loading && <PuffLoader size={40} color="red" className={css.loader} />}
+            </div>
             <ContactList />
         </div>
     )
