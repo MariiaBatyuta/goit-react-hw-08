@@ -1,0 +1,38 @@
+.registration {
+    max-width: 400px;
+    text-align: center;
+    margin: 0 auto;
+    transform: translateY(50%);
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.formLabel {
+    display: block;
+    margin-bottom: 5px;
+    text-align: left;
+}
+
+.formInput {
+    width: calc(100% - 22px);
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.link {
+    color: #78b4e6;
+    font-size: 14px;
+    font-weight: 400;
+    display: block;
+    text-align: end;
+    transition: color 250ms linear;
+    margin-top: 12px;
+}
+
+.link:hover {
+    color: #0579d8;
+}
