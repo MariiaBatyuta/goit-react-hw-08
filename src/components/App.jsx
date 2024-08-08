@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { refreshUser } from '../redux/auth/operations';
 import { selectRefreshUser } from '../redux/auth/selectors';
 import { RestrictedRoute } from './RestrictedRoute';
-import { PrivatRoute } from './PrivatRoute';
+import { PrivateRoute } from './PrivateRoute';
 import { Toaster } from 'react-hot-toast';
 import { PuffLoader } from 'react-spinners';
 
@@ -30,7 +30,7 @@ function App() {
         <Toaster position="top-center" reverseOrder={false}/>
         <Suspense fallback={null}>
           <Routes>
-            <Route path="/contacts" element={<PrivatRoute component={<ContactsPage />} redirectTo="/" />} />
+            <Route path="/contacts" element={<PrivateRoute component={<ContactsPage />} redirectTo="/" />} />
             <Route path="/register" element={<RestrictedRoute component={<RegisterPage />} redirectTo="/contacts" />} />
             <Route path="/login" element={<RestrictedRoute  component={<LoginPage />} redirectTo="/contacts" />} />
             
