@@ -1,7 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-axios.defaults.baseURL = "https://connections-api.herokuapp.com";
+axios.defaults.baseURL = "https://contactsbook-backend-j0i5.onrender.com/api/";
 
 const setAuthHeader = (token) => {
     axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
@@ -13,7 +13,7 @@ const clearAuthHeader = () => {
 
 export const register = createAsyncThunk("auth/register", async (userInfo, thunkAPI) => {
     try {
-        const response = await axios.post("/users/signup", userInfo);
+        const response = await axios.post("/users/register", userInfo);
         setAuthHeader(response.data.token);
         return response.data;
     } catch (error) {
@@ -50,7 +50,7 @@ export const refreshUser = createAsyncThunk("auth/refresh", async (_, thunkAPI) 
       
     setAuthHeader(savedToken); 
 
-    const response = await axios.get("/users/current");
+    const response = await axios.get("/users/login");
     return response.data;
 }, {
     condition: (_, {getState}) => {
