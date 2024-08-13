@@ -31,24 +31,26 @@ export default function RegistrationForm() {
     });
 
     return (
-        <Formik initialValues={{ name: "", email: "", password: "" }} onSubmit={handleSubmit} validationSchema={validateData}>
-            <Form className={css.registration}>
-                <label htmlFor="name" className={css.formLabel}>Username</label>
-                <Field type="text" name="name" id="name" className={css.formInput} />
-                <ErrorMessage className={css.error} component="div" name="name" />
+        <div className={css.registrationContainer}>
+            <Formik initialValues={{ name: "", email: "", password: "" }} onSubmit={handleSubmit} validationSchema={validateData}>
+                <Form className={css.registration}>
+                    <label htmlFor="name" className={css.formLabel}>Username</label>
+                    <Field type="text" name="name" id="name" className={css.formInput} />
+                    <ErrorMessage className={css.error} component="div" name="name" />
 
-                <label htmlFor="email" className={css.formLabel}>Email</label>
-                <Field type="email" name="email" id="email" className={css.formInput} />
-                <ErrorMessage className={css.error} component="div" name="email" />
+                    <label htmlFor="email" className={css.formLabel}>Email</label>
+                    <Field type="email" name="email" id="email" className={css.formInput} />
+                    <ErrorMessage className={css.error} component="div" name="email" />
 
-                <label htmlFor="password" className={css.formLabel}>Password</label>
-                <Field type="password" name="password" id="password" className={css.formInput} />
-                <ErrorMessage className={css.error} component="div" name="password" />
+                    <label htmlFor="password" className={css.formLabel}>Password</label>
+                    <Field type="password" name="password" id="password" className={css.formInput} />
+                    <ErrorMessage className={css.error} component="div" name="password" />
 
-                <button type="submit" className={css.formButton}>Register</button>
+                    <button type="submit" className={css.formButton}>Register</button>
 
-                <NavLink to="/login" className={css.link}>Already have an account? Log in</NavLink>
-            </Form>
-        </Formik>
+                    <NavLink to="/login" className={css.link}>Have an account? Log in</NavLink>
+                </Form>
+            </Formik>
+        </div>
     );
 };

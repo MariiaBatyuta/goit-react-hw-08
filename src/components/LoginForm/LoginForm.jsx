@@ -22,32 +22,24 @@ export default function LoginForm() {
     };
 
     return (
-        <Formik initialValues={{ email: "", password: "" }} onSubmit={handleSubmit}>
-            <Form className={css.contactForm}>
-                <div className={css.card}>
-                    <label htmlFor="email" className={css.label}>Email</label>
-                    <Field
-                        type="email"
-                        name="email"
-                        id="email"
-                        className={css.input}
-                    />
+        <div className={css.contactFormContainer}>
+            <Formik initialValues={{ email: "", password: "" }} onSubmit={handleSubmit}>
+                <Form className={css.contactForm}>
+                    <div className={css.card}>
+                        <label htmlFor="email" className={css.label}>Email</label>
+                        <Field type="email" name="email" id="email" className={css.input} />
 
-                    <label htmlFor="password" className={css.label}>Password</label>
-                    <Field
-                        type="password"
-                        name="password"
-                        id="password"
-                        className={css.input}
-                    />
+                        <label htmlFor="password" className={css.label}>Password</label>
+                        <Field type="password" name="password" id="password" className={css.input} />
 
-                    <button type="submit" className={css.formButton}>Log In</button>
+                        <button type="submit" className={css.formButton}>Log In</button>
 
-                    <NavLink to="/register" className={css.link}>
-                        Don't have an account? Register
-                    </NavLink>
-                </div>
-            </Form>
-        </Formik>
+                        <NavLink to="/register" className={css.link}>
+                            Don't have an account? Register
+                        </NavLink>
+                    </div>
+                </Form>
+            </Formik>
+        </div>
     );
 };
