@@ -1,11 +1,11 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios"
 
-axios.defaults.baseURL = "https://contactsbook-backend-j0i5.onrender.com/api/";
+axios.defaults.baseURL = "https://connections-api.goit.global/";
 
 export const fetchContacts = createAsyncThunk("contacts/fetchContacts", async (_, thunkAPI) => {
     try {
-        const response = await axios.get("/getContacts");
+        const response = await axios.get("/contacts");
         return response.data;
     } catch (error) {
         return thunkAPI.rejectWithValue(error.message);
@@ -14,7 +14,7 @@ export const fetchContacts = createAsyncThunk("contacts/fetchContacts", async (_
 
 export const addContact = createAsyncThunk("contacts/addContact", async (newContact, thunkAPI) => {
     try {
-        const response = await axios.post("/addContact", newContact);
+        const response = await axios.post("/contacts", newContact);
         return response.data;
     } catch (error) {
         return thunkAPI.rejectWithValue(error.message);
@@ -23,7 +23,7 @@ export const addContact = createAsyncThunk("contacts/addContact", async (newCont
 
 export const deleteContact = createAsyncThunk("contacts/deleteContact", async (contactId, thunkAPI) => {
     try {
-        const response = await axios.delete(`/deleteContact/${contactId}`);
+        const response = await axios.delete(`/contacts/${contactId}`);
         return response.data;
     } catch (error) {
         return thunkAPI.rejectWithValue(error.message);
@@ -34,7 +34,7 @@ export const deleteContact = createAsyncThunk("contacts/deleteContact", async (c
 export const editContact = createAsyncThunk("contacts/editContact",async (updatedContact, thunkAPI) => {
     try {
       const { id, ...newContact } = updatedContact; 
-      const response = await axios.patch(`/editContact/${id}`, newContact);
+      const response = await axios.patch(`/contacts/${id}`, newContact);
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

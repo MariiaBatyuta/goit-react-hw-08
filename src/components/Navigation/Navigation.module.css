@@ -1,11 +1,25 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    height: 80px;
+}
+
 .link {
     display: inline-block;
     text-decoration: none;
-    padding: 12px;
-    font-weight: 700;
-    color: #2a363b;
+    padding: 0 12px;
+    font-weight: 600;
+    transition: text-decoration 0.4s ease, color 0.4s ease;
 }
 
-.link.active {
-    color: #e84a5f;
+.link:hover {
+    text-decoration: underline;
+    color: #1d2528;
+}
+
+.activeLink {
+    text-decoration: underline;
+    color: #1d2528;
 }

@@ -4,11 +4,9 @@ export default function Home() {
     return (
     <div className={css.container}>
       <div className={css.content}>
-        <h1><b>Welcome to Our Contacts Manager 💁‍♀️</b></h1>
-        <p>
-          🌟 We're thrilled to have you here. Managing your contacts has never been easier. 🌟
-        </p>
+        <h1><b>Welcome to Your Contacts Hub!</b></h1>
+        <p>🌟 We're excited to help you streamline your connections. Enjoy effortless contact management with our intuitive tools. 🌟</p>
       </div>
-    </div>
+    </div>    
   )
 }

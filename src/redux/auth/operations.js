@@ -1,7 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-axios.defaults.baseURL = "https://contactsbook-backend-j0i5.onrender.com/api/";
+axios.defaults.baseURL = "https://connections-api.goit.global/";
 
 const setAuthHeader = (token) => {
     axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
@@ -13,7 +13,7 @@ const clearAuthHeader = () => {
 
 export const register = createAsyncThunk("auth/register", async (userInfo, thunkAPI) => {
     try {
-        const response = await axios.post("/users/register", userInfo);
+        const response = await axios.post("users/signup", userInfo);
         setAuthHeader(response.data.token);
         return response.data;
     } catch (error) {
@@ -23,7 +23,7 @@ export const register = createAsyncThunk("auth/register", async (userInfo, thunk
 
 export const logIn = createAsyncThunk("auth/logIn", async (userInfo, thunkAPI) => {
     try {
-        const response = await axios.post("/users/login", userInfo);
+        const response = await axios.post("users/login", userInfo);
         setAuthHeader(response.data.token);
         return response.data;
     } catch (error) {
@@ -33,7 +33,7 @@ export const logIn = createAsyncThunk("auth/logIn", async (userInfo, thunkAPI) =
 
 export const logOut = createAsyncThunk("auth/logOut", async (_, thunkAPI) => {
     try {
-        await axios.post("/users/logout");
+        await axios.post("users/logout");
         clearAuthHeader();
     } catch (error) {
         return thunkAPI.rejectWithValue(error.message);
@@ -50,7 +50,7 @@ export const refreshUser = createAsyncThunk("auth/refresh", async (_, thunkAPI) 
       
     setAuthHeader(savedToken); 
 
-    const response = await axios.get("/users/login");
+    const response = await axios.get("users/current");
     return response.data;
 }, {
     condition: (_, {getState}) => {

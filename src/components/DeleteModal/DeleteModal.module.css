@@ -1,0 +1,34 @@
+.dialogOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.dialog {
+    background: white;
+    border-radius: 8px;
+    padding: 20px;
+    width: 320px;
+    max-width: 80%;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+.dialogTitle {
+    margin-bottom: 16px;
+    font-size: 16px;
+    font-weight: bold;
+    color: black;
+}
+
+.dialogActions {
+    display: flex;
+    justify-content: space-around;
+}

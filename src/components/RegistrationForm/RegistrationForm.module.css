@@ -1,47 +1,53 @@
 .registration {
-    max-width: 400px;
-    text-align: center;
-    margin: 0 auto;
-    transform: translateY(50%);
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #f9f9f9;
-}
-.formLabel {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    max-width: 400px;
+    margin: 12px auto;
+    padding: 20px;
+    border: 1px solid black;
+    box-shadow: 4px 4px 8px rgba(110, 110, 110, 0.5), -4px -4px 8px rgba(162, 162, 162, 0.5);
+    border-radius: 12px;
+    background-color: white;
+}
+
+.formLabel {
+    display: block;
+    justify-content: flex-start;
+    width: 96%;
     margin-bottom: 4px;
-    text-align: left;
+    margin-top: 8px;
 }
 
 .formInput {
-    width: calc(100% - 22px);
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    width: 96%;
+    padding: 8px;
+    margin-bottom: 4px;
+    border: 1px solid black;
+    border-radius: 12px;
+    background-color: white;
 }
 
-
 .error {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: red;
+    color: orangered;
     font-size: 12px;
+    margin-bottom: 4px;
+    width: 96%;
+}
+
+.formButton {
+    margin-top: 16px;
+    width: 60%;
 }
 
 .link {
-    color: #78b4e6;
-    font-size: 14px;
-    font-weight: 400;
-    display: block;
-    text-align: end;
-    transition: color 250ms linear;
-    margin-top: 12px;
+    display: inline-block;
+    text-decoration: none;
+    padding: 12px;
+    font-weight: 600;
+    transition: text-decoration 0.4s ease, color 0.4s ease;
 }
 
 .link:hover {
-    color: #0579d8;
+    text-decoration: underline;
 }

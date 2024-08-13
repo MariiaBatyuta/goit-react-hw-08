@@ -1,38 +1,51 @@
-.registration {
+.contactForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     max-width: 400px;
-    text-align: center;
-    margin: 0 auto;
-    transform: translateY(50%);
+    margin: 12px auto;
+}
+
+.card {
+    width: 100%;
+    border: 1px solid black;
+    box-shadow: 4px 4px 8px #6e6e6e, -4px -4px 8px #a2a2a2;
+    border-radius: 12px;
     padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #f9f9f9;
+    text-align: center;
+    background-color: white;
 }
 
-.formLabel {
+.label {
     display: block;
-    margin-bottom: 5px;
     text-align: left;
+    margin-bottom: 8px;
 }
 
-.formInput {
-    width: calc(100% - 22px);
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+.input {
+    width: 96%;
+    padding: 8px;
+    margin-bottom: 12px;
+    border: 1px solid black;
+    border-radius: 12px;
+    background-color: white;
+}
+
+.formButton {
+    margin-top: 16px;
+    width: 60%;
 }
 
 .link {
-    color: #78b4e6;
-    font-size: 14px;
-    font-weight: 400;
-    display: block;
-    text-align: end;
-    transition: color 250ms linear;
+    display: inline-block;
+    text-decoration: none;
+    padding: 12px;
+    font-weight: 600;
+    transition: text-decoration 0.4s ease, color 0.4s ease;
     margin-top: 12px;
 }
 
 .link:hover {
-    color: #0579d8;
+    text-decoration: underline;
 }

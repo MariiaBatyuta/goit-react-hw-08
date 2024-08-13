@@ -1,6 +1,19 @@
 .wrapper {
     display: flex;
     align-items: center;
-    gap: 12px;
     height: 80px;
+}
+
+.logout {
+    display: inline-block;
+    text-decoration: none;
+    padding: 12px;
+    font-weight: 600;
+    transition: text-decoration 0.4s ease, color 0.4s ease;
+}
+
+.logout:hover {
+    text-decoration: underline;
+    background-color: transparent;
+    box-shadow: none;
 }

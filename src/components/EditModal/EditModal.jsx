@@ -1,11 +1,6 @@
 import React, { useState } from 'react';
-import Button from '@mui/material/Button';
-import TextField from '@mui/material/TextField';
-import Dialog from '@mui/material/Dialog';
-import DialogActions from '@mui/material/DialogActions';
-import DialogContent from '@mui/material/DialogContent';
-import DialogTitle from '@mui/material/DialogTitle';
 import { CiEdit } from "react-icons/ci";
+import css from './EditModal.module.css'; // Import your CSS module
 
 export default function EditModal({ id, name: initialName, number: initialNumber, onSubmit }) {
     const [open, setOpen] = useState(false);
@@ -45,42 +40,26 @@ export default function EditModal({ id, name: initialName, number: initialNumber
             <button type="button" onClick={handleClickOpen}>
                 <CiEdit color='black' size={12} />
             </button>
-            
-            <Dialog open={open} onClose={handleClose}>
-                <form onSubmit={handleSubmit}>
-                    <DialogTitle>Edit contact information</DialogTitle>
-                    <DialogContent>
-                        <TextField
-                            autoFocus
-                            required
-                            margin="dense"
-                            id="name"
-                            label="Name"
-                            type="text"
-                            fullWidth
-                            variant="standard"
-                            value={name}
-                            onChange={(e) => setName(e.target.value)}
-                        />
-                        <TextField
-                            autoFocus
-                            required
-                            margin="dense"
-                            id="number"
-                            label="Number"
-                            type="text"
-                            fullWidth
-                            variant="standard"
-                            value={number}
-                            onChange={handleNumberChange}
-                        />
-                    </DialogContent>
-                    <DialogActions>
-                        <button type="button" onClick={handleClose}>Cancel</button>
-                        <button type="submit">Save</button>
-                    </DialogActions>
-                </form>
-            </Dialog>
+
+            {open && (
+                <div className={css.dialogOverlay} onClick={handleClose}>
+                    <div className={css.dialog} onClick={(e) => e.stopPropagation()}>
+                        <form onSubmit={handleSubmit} className={css.form}>
+                            <h2 className={css.dialogTitle}>Edit contact information</h2>
+                            <div className={css.dialogContent}>
+                                <label htmlFor="name" className={css.label}>Name</label>
+                                <input autoFocus required id="name" type="text" className={css.input} value={name} onChange={(e) => setName(e.target.value)}/>
+                                <label htmlFor="number" className={css.label}>Number</label>
+                                <input required id="number" type="text" className={css.input} value={number} onChange={handleNumberChange} />
+                            </div>
+                            <div className={css.dialogActions}>
+                                <button type="button" onClick={handleClose}>Cancel</button>
+                                <button type="submit">Save</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            )}
         </>
     );
-}
+};
